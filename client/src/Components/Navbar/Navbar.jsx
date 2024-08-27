@@ -1,6 +1,14 @@
-
-
+import { NavLink } from "react-router-dom";
+import "./Navbar.css"
+import defaultUser from "../../assets/user.png"
 const Navbar = () => {
+    const links = <>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold"} to={"/"}><li><a>Home</a></li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold"} to={"/spots"}><li><a>Spots</a></li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold"} to={"/add-tourists-spot"}><li><a>Add Tourists Spot</a></li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold"} to={"/my-lists"}><li><a>My List</a></li></NavLink>
+
+    </>
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -22,36 +30,25 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <a>Parent</a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Item 3</a></li>
+                        {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-2xl font-bold"><span className="text-primary-c">GO</span>Travel</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
-                    <li>
-                        <details>
-                            <summary>Parent</summary>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a>Item 3</a></li>
+                    {
+                        links
+                    }
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
+            <div className="navbar-end space-x-2">
+                <div className="avatar ">
+                    <div className="w-10 rounded-full">
+                        <img src={defaultUser} />
+                    </div>
+                </div>
+                <a className=" px-3 py-2 rounded bg-primary-c text-white">LogIn</a>
             </div>
         </div>
     );
