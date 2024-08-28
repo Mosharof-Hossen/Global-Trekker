@@ -23,7 +23,6 @@ const Register = () => {
                     photoURL: data.photoUrl
                 })
                     .then(() => {
-                        console.log("Update profile");
                         setErrMsg("")
                         Swal.fire({
                             position: "top-end",

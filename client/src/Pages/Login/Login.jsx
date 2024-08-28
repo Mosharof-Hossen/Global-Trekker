@@ -1,11 +1,36 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaGithub, FaGoogle } from "react-icons/fa6";
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const { loginByEmailAndPassword } = useContext(AuthContext);
+    const [errMsg, setErrMsg] = useState("");
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-    console.log(errors);
+    const navigate = useNavigate()
+
+    const onSubmit = data => {
+        console.log(data)
+        loginByEmailAndPassword(data.email, data.password)
+            .then(() => {
+                setErrMsg("")
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successfully Done",
+                    showConfirmButton: false,
+                    timer: 1500,
+
+                }).then(() => {
+                    navigate("/")
+                })
+            })
+            .catch(() => {
+                setErrMsg("Invalid Email or Password")
+            })
+    };
     return (
         <div className='dark:bg-gray-900 dark:text-white'>
             <div className="md:mx-20 mx-5 py-10 space-y-10 ">
@@ -16,7 +41,6 @@ const Login = () => {
                     </div>
                     <div className="px-5 md:px-0 font-raleway-c">
                         <form onSubmit={handleSubmit(onSubmit)}>
-
                             <div className="flex md:gap-5 gap-0 md:flex-row flex-col">
                                 <div className="flex-1">
                                     <label className="">
@@ -37,12 +61,10 @@ const Login = () => {
                                             )
                                         }
                                     </label>
-
-
                                 </div>
                             </div>
                             <input className="text-primary-c  font-rancho-c border-2 cursor-pointer border-primary-c text-2xl bg-primary-b-c w-full p-2 mt-8 rounded" type="submit" value={"Login"} />
-<Link></Link>
+                            <p className='text-red-500 text-center mt-4'>{errMsg && errMsg}</p>
                         </form>
 
                         <div>
