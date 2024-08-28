@@ -41,12 +41,12 @@ const Login = () => {
 
                                 </div>
                             </div>
-
                             <input className="text-primary-c  font-rancho-c border-2 cursor-pointer border-primary-c text-2xl bg-primary-b-c w-full p-2 mt-8 rounded" type="submit" value={"Login"} />
+<Link></Link>
                         </form>
 
                         <div>
-                            <p className='font-bold text-center my-6'>Do not Have An Account? <Link className='text-red-500'>Register</Link></p>
+                            <p className='font-bold text-center my-6'>Do not Have An Account? <Link to={'/register'} className='text-red-500'>Register</Link></p>
                             <div className="divider divider-accent my-8">Or</div>
                             <div className='flex space-x-5 justify-center'>
                                 <button className='px-3 py-2 border border-primary-c rounded text-primary-c flex items-center space-x-1'><span>Google</span><FaGoogle></FaGoogle></button>
