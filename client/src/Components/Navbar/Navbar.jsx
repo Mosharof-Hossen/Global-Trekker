@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css"
 import defaultUser from "../../assets/user.png"
 import { useEffect, useState } from "react";
@@ -87,7 +87,7 @@ const Navbar = () => {
                         <img src={defaultUser} />
                     </div>
                 </div>
-                <a  className="  px-3 py-2 rounded bg-primary-c text-white">LogIn</a>
+                <Link to={'/login'}><button  className="  px-3 py-2 rounded bg-primary-c text-white">LogIn</button></Link>
             </div>
         </div>
     );
