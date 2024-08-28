@@ -1,12 +1,38 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowLeft, } from "react-icons/fa6";
-
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2'
 
 const Register = () => {
+    const { user, createUserByEmailAndPassword } = useContext(AuthContext);
+    const [errMsg, setErrMsg] = useState("")
+    const navigate = useNavigate()
+
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-    console.log(errors);
+    const onSubmit = data => {
+        createUserByEmailAndPassword(data.email, data.password)
+            .then(() => {
+                setErrMsg("")
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Registration Successfully Done",
+                    showConfirmButton: false,
+                    timer: 1500,
+
+                }).then(() => {
+                    navigate("/")
+                })
+
+            })
+            .catch(() => {
+                setErrMsg("Email Already in Used. Please Login")
+                
+            })
+    };
     return (
         <div className='dark:bg-gray-900 dark:text-white'>
             <div className="md:mx-20 mx-5 py-10 space-y-10 ">
@@ -69,7 +95,7 @@ const Register = () => {
                                 </div>
                             </div>
                             <input className="text-primary-c  font-rancho-c border-2 cursor-pointer border-primary-c text-2xl bg-primary-b-c w-full p-2 mt-8 rounded" type="submit" value={"Register"} />
-                            <Link></Link>
+                            <p className='text-center mt-2 text-red-500'>{errMsg}</p>
                         </form>
 
                         <div>
