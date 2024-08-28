@@ -6,7 +6,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { loginByEmailAndPassword, logInWithGoogle } = useContext(AuthContext);
+    const { loginByEmailAndPassword, logInWithGoogle, loginWithGithub } = useContext(AuthContext);
     const [errMsg, setErrMsg] = useState("");
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
@@ -36,6 +36,22 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         logInWithGoogle()
+            .then(() => {
+                setErrMsg("")
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully Login",
+                    showConfirmButton: false,
+                    timer: 1500,
+
+                }).then(() => {
+                    navigate(location.state ? location.state : "/")
+                })
+            })
+    }
+    const handleGithubLogin = () => {
+        loginWithGithub()
             .then(() => {
                 setErrMsg("")
                 Swal.fire({
@@ -92,7 +108,7 @@ const Login = () => {
                             <div className="divider divider-accent my-8">Or</div>
                             <div className='flex space-x-5 justify-center'>
                                 <button onClick={handleGoogleLogin} className='px-3 py-2 border border-primary-c rounded text-primary-c flex items-center space-x-1'><span>Google</span><FaGoogle></FaGoogle></button>
-                                <button className='px-3 py-2 border border-primary-c rounded text-primary-c flex items-center space-x-1'><span>Github</span><FaGithub></FaGithub></button>
+                                <button onClick={handleGithubLogin} className='px-3 py-2 border border-primary-c rounded text-primary-c flex items-center space-x-1'><span>Github</span><FaGithub></FaGithub></button>
 
 
                             </div>
