@@ -24,8 +24,13 @@ const Navbar = () => {
     const links = <>
         <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/"}><li>Home</li></NavLink>
         <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/spots"}><li>Spots</li></NavLink>
-        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/add-tourists-spot"}><li>Add Tourists Spot</li></NavLink>
-        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/my-lists"}><li>My List</li></NavLink>
+        {
+            user && <>
+                <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/add-tourists-spot"}><li>Add Tourists Spot</li></NavLink>
+                <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/my-lists"}><li>My List</li></NavLink>
+
+            </>
+        }
 
     </>
 
@@ -102,7 +107,7 @@ const Navbar = () => {
                 </label>
                 <div className="avatar tooltip tooltip-bottom z-10" data-tip={user?.displayName}>
                     <div className="w-10 rounded-full " >
-                        <img className=""  src={user ? user.photoURL : defaultUser} />
+                        <img className="" src={user ? user.photoURL : defaultUser} />
                     </div>
                 </div>
                 {
