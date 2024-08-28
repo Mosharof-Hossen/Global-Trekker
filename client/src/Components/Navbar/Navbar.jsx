@@ -20,10 +20,10 @@ const Navbar = () => {
         }
     }, [theme]);
     const links = <>
-        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold  px-3 py-2 mx-1"} to={"/"}><li>Home</li></NavLink>
-        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1"} to={"/spots"}><li>Spots</li></NavLink>
-        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1"} to={"/add-tourists-spot"}><li>Add Tourists Spot</li></NavLink>
-        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1"} to={"/my-lists"}><li>My List</li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/"}><li>Home</li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/spots"}><li>Spots</li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/add-tourists-spot"}><li>Add Tourists Spot</li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/my-lists"}><li>My List</li></NavLink>
 
     </>
     return (
@@ -46,13 +46,13 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className= " menu menu-sm dropdown-content bg-base-100 rounded-box z-[2] mt-3 w-52 p-2 shadow  dark:bg-gray-900 dark:text-white ">
                         {links}
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-2xl font-bold"><span className="text-primary-c">GO</span>Travel</a>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center hidden lg:flex ">
                 <ul className="menu menu-horizontal px-1">
                     {
                         links
