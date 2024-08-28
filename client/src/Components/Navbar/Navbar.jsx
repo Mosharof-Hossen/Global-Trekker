@@ -1,16 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css"
 import defaultUser from "../../assets/user.png"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 const Navbar = () => {
-
     const [theme, setTheme] = useState('light');
+    const { user, logOut } = useContext(AuthContext);
 
     // Toggle between dark and light mode
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     };
-
     // Apply the theme class to the root element
     useEffect(() => {
         if (theme === 'dark') {
@@ -19,6 +20,7 @@ const Navbar = () => {
             document.documentElement.classList.remove('dark');
         }
     }, [theme]);
+
     const links = <>
         <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/"}><li>Home</li></NavLink>
         <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/spots"}><li>Spots</li></NavLink>
@@ -26,6 +28,22 @@ const Navbar = () => {
         <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/my-lists"}><li>My List</li></NavLink>
 
     </>
+
+    const handleLogOut=()=>{
+        logOut()
+        .then(()=>{
+            Swal.fire({
+                icon: "success",
+                title: "Logout Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        })
+    }
+
+    console.log(user);
+
+
     return (
         <div className="navbar bg-base-100 dark:bg-gray-900 dark:text-white">
             <div className="navbar-start">
@@ -46,7 +64,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className= " menu menu-sm dropdown-content bg-base-100 rounded-box z-[2] mt-3 w-52 p-2 shadow  dark:bg-gray-900 dark:text-white ">
+                        className=" menu menu-sm dropdown-content bg-base-100 rounded-box z-[2] mt-3 w-52 p-2 shadow  dark:bg-gray-900 dark:text-white ">
                         {links}
                     </ul>
                 </div>
@@ -60,7 +78,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end space-x-2">
-                <label  className="swap swap-rotate">
+                <label className="swap swap-rotate">
                     {/* this hidden checkbox controls the state */}
                     <input onClick={toggleTheme} type="checkbox" className="theme-controller" value="synthwave" />
 
@@ -84,10 +102,15 @@ const Navbar = () => {
                 </label>
                 <div className="avatar ">
                     <div className="w-10 rounded-full">
-                        <img src={defaultUser} />
+                        <img src={user ? user.photoURL : defaultUser} />
                     </div>
                 </div>
-                <Link to={'/login'}><button  className="  px-3 py-2 rounded bg-primary-c text-white">LogIn</button></Link>
+                {
+                    user ?
+                        <Link onClick={handleLogOut} ><button className="  px-3 py-2 rounded bg-primary-c text-white">Logout</button></Link>
+                        :
+                        <Link to={'/login'}><button className="  px-3 py-2 rounded bg-primary-c text-white">LogIn</button></Link>
+                }
             </div>
         </div>
     );

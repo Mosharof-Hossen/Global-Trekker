@@ -4,33 +4,46 @@ import { FaArrowLeft, } from "react-icons/fa6";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2'
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const { user, createUserByEmailAndPassword } = useContext(AuthContext);
+    const { createUserByEmailAndPassword } = useContext(AuthContext);
     const [errMsg, setErrMsg] = useState("")
     const navigate = useNavigate()
 
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
+        console.log(data);
         createUserByEmailAndPassword(data.email, data.password)
-            .then(() => {
-                setErrMsg("")
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Registration Successfully Done",
-                    showConfirmButton: false,
-                    timer: 1500,
+            .then((result) => {
 
-                }).then(() => {
-                    navigate("/")
+                updateProfile(result.user, {
+                    displayName: data.name,
+                    photoURL: data.photoUrl
                 })
+                    .then(() => {
+                        console.log("Update profile");
+                        setErrMsg("")
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Registration Successfully Done",
+                            showConfirmButton: false,
+                            timer: 1500,
+
+                        }).then(() => {
+                            navigate("/")
+                        })
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
 
             })
             .catch(() => {
                 setErrMsg("Email Already in Used. Please Login")
-                
+
             })
     };
     return (
