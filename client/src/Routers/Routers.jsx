@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import Spots from "../Pages/Spots/Spots";
 import AddTouristsSpot from "../Pages/AddRouriestsSpot/AddRouriestsSpot";
 import MyList from "../Pages/MyList/MyList";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -25,16 +26,16 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path:"/spots",
-                element:<Spots></Spots>
+                path: "/spots",
+                element: <Spots></Spots>
             },
             {
-                path:"/add-tourists-spot",
-                element:<AddTouristsSpot></AddTouristsSpot>
+                path: "/add-tourists-spot",
+                element: <PrivateRoute><AddTouristsSpot></AddTouristsSpot></PrivateRoute>
             },
             {
-                path:"/my-lists",
-                element:<MyList></MyList>
+                path: "/my-lists",
+                element: <PrivateRoute><MyList></MyList></PrivateRoute>
             }
 
         ]
