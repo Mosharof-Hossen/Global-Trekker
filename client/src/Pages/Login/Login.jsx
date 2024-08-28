@@ -1,15 +1,17 @@
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaGithub, FaGoogle } from "react-icons/fa6";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { loginByEmailAndPassword } = useContext(AuthContext);
+    const { loginByEmailAndPassword, logInWithGoogle } = useContext(AuthContext);
     const [errMsg, setErrMsg] = useState("");
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location);
 
     const onSubmit = data => {
         console.log(data)
@@ -19,18 +21,36 @@ const Login = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Login Successfully Done",
+                    title: "Successfully Login",
                     showConfirmButton: false,
                     timer: 1500,
 
                 }).then(() => {
-                    navigate("/")
+                    navigate(location.state ? location.state : "/")
                 })
             })
             .catch(() => {
                 setErrMsg("Invalid Email or Password")
             })
     };
+
+    const handleGoogleLogin = () => {
+        logInWithGoogle()
+            .then(() => {
+                setErrMsg("")
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully Login",
+                    showConfirmButton: false,
+                    timer: 1500,
+
+                }).then(() => {
+                    navigate(location.state ? location.state : "/")
+                })
+            })
+    }
+
     return (
         <div className='dark:bg-gray-900 dark:text-white'>
             <div className="md:mx-20 mx-5 py-10 space-y-10 ">
@@ -71,7 +91,7 @@ const Login = () => {
                             <p className='font-bold text-center my-6'>Do not Have An Account? <Link to={'/register'} className='text-red-500'>Register</Link></p>
                             <div className="divider divider-accent my-8">Or</div>
                             <div className='flex space-x-5 justify-center'>
-                                <button className='px-3 py-2 border border-primary-c rounded text-primary-c flex items-center space-x-1'><span>Google</span><FaGoogle></FaGoogle></button>
+                                <button onClick={handleGoogleLogin} className='px-3 py-2 border border-primary-c rounded text-primary-c flex items-center space-x-1'><span>Google</span><FaGoogle></FaGoogle></button>
                                 <button className='px-3 py-2 border border-primary-c rounded text-primary-c flex items-center space-x-1'><span>Github</span><FaGithub></FaGithub></button>
 
 
