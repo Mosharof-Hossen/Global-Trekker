@@ -9,7 +9,21 @@ const AddTouristsSpot = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
-        fetch()
+        fetch("http://localhost:3000/spot", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     };
 
 
