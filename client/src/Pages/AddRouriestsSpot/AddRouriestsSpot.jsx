@@ -1,11 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa6";
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const AddTouristsSpot = () => {
+    const { user } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-    console.log(errors);
+    const onSubmit = data => {
+        console.log(data)
+        fetch()
+    };
+
+
+
     return (
         <div className='dark:bg-gray-900 dark:text-white'>
             <div className="md:mx-20 mx-1 py-10 space-y-10 ">
@@ -22,7 +30,7 @@ const AddTouristsSpot = () => {
                                 <div className="flex-1">
                                     <label className="">
                                         <p className="my-2 font-semibold text-xl">User Email</p>
-                                        <input className="px-2 py-2 w-full rounded dark:text-black" defaultValue={"user@gmail.com"} type="email" placeholder="Enter User Email"  {...register("userEmail", { required: true, maxLength: 80 })} />
+                                        <input className="px-2 py-2 w-full rounded dark:text-black" defaultValue={user?.email} type="email" placeholder="Enter User Email"  {...register("userEmail", { required: true, maxLength: 80 })} />
                                         {
                                             errors?.userEmail?.type === "required" && (
                                                 <p className="text-sm mt-1 text-red-500 " role="alert">User Email is Required.</p>
@@ -31,7 +39,7 @@ const AddTouristsSpot = () => {
                                     </label>
                                     <label className="">
                                         <p className="my-2 font-semibold text-xl">User Name</p>
-                                        <input className="px-2 py-2 w-full rounded dark:text-black" defaultValue={"user Name"} type="text" placeholder="Enter User Name"  {...register("userName", { required: true, maxLength: 80 })} />
+                                        <input className="px-2 py-2 w-full rounded dark:text-black" defaultValue={user?.displayName} type="text" placeholder="Enter User Name"  {...register("userName", { required: true, maxLength: 80 })} />
                                         {
                                             errors?.userName?.type === "required" && (
                                                 <p className="text-sm mt-1 text-red-500 " role="alert">User Name is Required.</p>
@@ -119,7 +127,7 @@ const AddTouristsSpot = () => {
                             </div>
                             <label className="">
                                 <p className="my-2 font-semibold text-xl">Description</p>
-                                <textarea rows={4} className="px-2 py-2 w-full rounded dark:text-black" type="" placeholder="Write Description...." {...register("description", { required: true, maxLength: 80 })} />
+                                <textarea rows={4} className="px-2 py-2 w-full rounded dark:text-black" type="" placeholder="Write Description...." {...register("description", { required: true, maxLength: 3000 })} />
                                 {
                                     errors?.description?.type === "required" && (
                                         <p className="text-sm mt-1 text-red-500 " role="alert">Description is Required.</p>

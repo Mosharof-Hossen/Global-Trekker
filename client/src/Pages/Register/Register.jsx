@@ -80,7 +80,7 @@ const Register = () => {
                                     </label>
                                     <label className="">
                                         <p className="my-2 font-semibold text-xl">Password</p>
-                                        <input className="px-2 py-2 w-full rounded dark:text-black" type="text" placeholder="Enter password"  {...register("password", { required: true, maxLength: 80, pattern: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/ })} />
+                                        <input className="px-2 py-2 w-full rounded dark:text-black" type="password" placeholder="Enter password"  {...register("password", { required: true, maxLength: 80, pattern: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/ })} />
                                         {
                                             errors?.password?.type === "required" && (
                                                 <p className="text-sm mt-1 text-red-500 " role="alert">Password is Required.</p>

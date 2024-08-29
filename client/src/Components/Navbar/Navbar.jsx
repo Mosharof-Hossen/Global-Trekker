@@ -28,10 +28,8 @@ const Navbar = () => {
             user && <>
                 <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/add-tourists-spot"}><li>Add Tourists Spot</li></NavLink>
                 <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/my-lists"}><li>My List</li></NavLink>
-
             </>
         }
-
     </>
 
     const handleLogOut = () => {
@@ -45,9 +43,6 @@ const Navbar = () => {
                 });
             })
     }
-
-    console.log(user);
-
 
     return (
         <div className="navbar bg-base-100 dark:bg-gray-900 dark:text-white">
