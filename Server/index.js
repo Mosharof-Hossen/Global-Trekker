@@ -45,6 +45,14 @@ async function run() {
             res.send(result)
         })
 
+        app.get("/spots/:email", async (req, res) => {
+            const email = req.params.email;
+            const query = { userEmail: email };
+            const cursor = spotsCollection.find(query);
+            const result = await cursor.toArray();
+            res.send(result)
+        })
+
         app.post("/spot", async (req, res) => {
             const spot = req.body;
             console.log(spot);
