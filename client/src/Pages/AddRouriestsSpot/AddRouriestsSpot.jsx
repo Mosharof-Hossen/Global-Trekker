@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa6";
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2'
 
 const AddTouristsSpot = () => {
     const { user } = useContext(AuthContext);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
         fetch("http://localhost:3000/spot", {
@@ -19,10 +20,28 @@ const AddTouristsSpot = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                if (result.acknowledged) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Spot has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        reset();
+                    })
+                }
+
+
             })
-            .catch(err => {
-                console.log(err);
+            .catch(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Server Problem. Try again.",
+                    showConfirmButton: false,
+                    timer: 2000
+                })
             })
     };
 
@@ -141,7 +160,7 @@ const AddTouristsSpot = () => {
                             </div>
                             <label className="">
                                 <p className="my-2 font-semibold text-xl">Description</p>
-                                <textarea rows={4} className="px-2 py-2 w-full rounded dark:text-black" type="" placeholder="Write Description...." {...register("description", { required: true, maxLength: 3000 })} />
+                                <textarea rows={5} className="text-justify px-2 py-2 w-full rounded dark:text-black" type="" placeholder="Write Description...." {...register("description", { required: true, maxLength: 3000 })} />
                                 {
                                     errors?.description?.type === "required" && (
                                         <p className="text-sm mt-1 text-red-500 " role="alert">Description is Required.</p>
