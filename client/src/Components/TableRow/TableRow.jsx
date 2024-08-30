@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const TableRow = ({ data }) => {
+const TableRow = ({ data, handleDisplayAfterDelete }) => {
     const { photoUrl, spotName, countryName, userName, description, _id } = data
     console.log(data);
     const handleDelete = (id) => {
@@ -22,12 +22,13 @@ const TableRow = ({ data }) => {
                 })
                     .then(res => res.json())
                     .then(result => {
-                        if(result.deletedCount > 0){
+                        if (result.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your tourist spot has been deleted.",
                                 icon: "success"
                             });
+                            handleDisplayAfterDelete(id);
                         }
                     })
 

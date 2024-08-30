@@ -11,6 +11,10 @@ const MyList = () => {
             .then(res => res.json())
             .then(data => setMyData(data))
     }, [user])
+    const handleDisplayAfterDelete = (id) => {
+        const filtered = myData.filter(spot => spot._id != id);
+        setMyData(filtered);
+    }
     return (
         <div className="dark:bg-gray-900 dark:text-white p-10">
             <div className="overflow-x-auto">
@@ -29,9 +33,9 @@ const MyList = () => {
 
 
                         {
-                            myData?.map(data => <TableRow data={data} key={data._id}></TableRow>)
+                            myData?.map(data => <TableRow data={data} handleDisplayAfterDelete={handleDisplayAfterDelete} key={data._id}></TableRow>)
                         }
-                        
+
                     </tbody>
                 </table>
             </div>
