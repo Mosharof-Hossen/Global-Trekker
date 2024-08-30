@@ -53,10 +53,19 @@ async function run() {
             res.send(result)
         })
 
+
+
         app.post("/spot", async (req, res) => {
             const spot = req.body;
             console.log(spot);
             const result = await spotsCollection.insertOne(spot);
+            res.send(result)
+        })
+
+        app.delete("/delete/:id", async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await spotsCollection.deleteOne(query);
             res.send(result)
         })
 

@@ -1,8 +1,39 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const TableRow = ({ data }) => {
-    const { photoUrl, spotName, countryName } = data
+    const { photoUrl, spotName, countryName, userName, description, _id } = data
     console.log(data);
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log(id);
+                fetch(`http://localhost:3000/delete/${id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        if(result.deletedCount > 0){
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your tourist spot has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
+    }
     return (
         <tr>
             <td>
@@ -21,13 +52,12 @@ const TableRow = ({ data }) => {
                 </div>
             </td>
             <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                {description.slice(0, 35)} <Link to={`/spot-details/${_id}`}><span className='text-orange-400'>... More</span></Link>
             </td>
-            <td>Purple</td>
-            <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+            <td>{userName}</td>
+            <th className='space-x-2 space-y-2'>
+                <Link to={`/update/${_id}`}><button className="px-3 py-2 bg-primary-c text-white rounded">Update</button></Link>
+                <button onClick={() => handleDelete(_id)} className="px-3 py-2 bg-primary-c text-white rounded">Delete</button>
             </th>
         </tr>
     );

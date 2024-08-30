@@ -12,16 +12,16 @@ const MyList = () => {
             .then(data => setMyData(data))
     }, [user])
     return (
-        <div>
+        <div className="dark:bg-gray-900 dark:text-white p-10">
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="text-xl font-bold dark:text-white">
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
+                            <th>Spot Description</th>
+                            <th>User Name</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
