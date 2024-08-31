@@ -53,6 +53,27 @@ async function run() {
             res.send(result)
         })
 
+        app.put("/update/:id", async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const data = req.body;
+            const updateSpot = {
+                $set: {
+                    averageCost: data.averageCost,
+                    countryName: data.countryName,
+                    description: data.description,
+                    location: data.location,
+                    photoUrl: data.photoUrl,
+                    seasonality: data.seasonality,
+                    spotName: data.spotName,
+                    totalVisitorsPerYear: data.totalVisitorsPerYear,
+                    travelTime: data.travelTime
+                }
+            }
+            const result = await spotsCollection.updateOne(query, updateSpot);
+            res.send(result)
+        })
+
 
 
         app.post("/spot", async (req, res) => {

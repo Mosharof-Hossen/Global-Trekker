@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const TableRow = ({ data, handleDisplayAfterDelete }) => {
     const { photoUrl, spotName, countryName, userName, description, _id } = data
-    console.log(data);
+
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -65,7 +65,8 @@ const TableRow = ({ data, handleDisplayAfterDelete }) => {
 };
 
 TableRow.propTypes = {
-    data: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired,
+    handleDisplayAfterDelete:PropTypes.func
 };
 
 export default TableRow;
