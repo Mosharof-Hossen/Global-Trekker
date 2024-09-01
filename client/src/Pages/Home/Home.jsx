@@ -3,6 +3,7 @@ import Banner from "../../Components/Banner/Banner";
 import SpotCard from "../../Components/SpotCard/SpotCard";
 import { useEffect, useState } from "react";
 import CountryCard from "../../Components/CountryCard/CountryCard";
+import Review from "../../Components/ReviewSection/Review";
 
 
 const Home = () => {
@@ -41,6 +42,18 @@ const Home = () => {
                     }
                 </div>
             </div>
+
+
+            <div className="dark:bg-gray-900">
+                <div className="py-14 space-y-2">
+                    <h2 className="text-center font-bold text-3xl md:px-20 lg:px-40 px-5 dark:text-white">Our Happy clients</h2>
+
+                </div>
+                <div className="p-5">
+                    <Review></Review>
+                </div>
+            </div>
+
 
         </div>
     );
