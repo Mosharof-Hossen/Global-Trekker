@@ -1,10 +1,19 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../../Components/Banner/Banner";
 import SpotCard from "../../Components/SpotCard/SpotCard";
+import { useEffect, useState } from "react";
+import CountryCard from "../../Components/CountryCard/CountryCard";
 
 
 const Home = () => {
+    const [country, setCountry] = useState([]);
     const spots = useLoaderData();
+
+    useEffect(() => {
+        fetch("http://localhost:3000/country")
+            .then(res => res.json())
+            .then(data => setCountry(data))
+    }, [])
     return (
         <div>
             <Banner></Banner>
@@ -20,6 +29,19 @@ const Home = () => {
                     }
                 </div>
             </div>
+
+            <div className="dark:bg-gray-900">
+                <div className="py-14 space-y-2">
+                    <h2 className="text-center font-bold text-3xl md:px-20 lg:px-40 px-5 dark:text-white">Explore the World is Most Captivating Destinations</h2>
+                    <p className="text-center dark:text-white md:px-20 lg:px-40 px-5">Journey through some of the world is most captivating destinations, each offering its own unique charm and allure.</p>
+                </div>
+                <div className="grid md:grid-cols-3 grid-cols-2 gap-5 p-5 ">
+                    {
+                        country.map(info => <CountryCard key={info._id} country={info}></CountryCard>)
+                    }
+                </div>
+            </div>
+
         </div>
     );
 };

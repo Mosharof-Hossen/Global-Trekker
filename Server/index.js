@@ -31,9 +31,17 @@ async function run() {
         await client.connect();
 
         const spotsCollection = client.db("spotsDB").collection("spots");
+        const countryCollection = client.db("spotsDB").collection("countryName");
+
 
         app.get("/spots", async (req, res) => {
             const cursor = spotsCollection.find();
+            const result = await cursor.toArray();
+            res.send(result)
+        })
+
+        app.get("/country", async (req, res) => {
+            const cursor = countryCollection.find();
             const result = await cursor.toArray();
             res.send(result)
         })
@@ -48,6 +56,15 @@ async function run() {
         app.get("/spots/:email", async (req, res) => {
             const email = req.params.email;
             const query = { userEmail: email };
+            const cursor = spotsCollection.find(query);
+            const result = await cursor.toArray();
+            res.send(result)
+        })
+
+        app.get("/country-spots/:country", async (req, res) => {
+            const country = req.params.country;
+            console.log(country);
+            const query = { countryName: country };
             const cursor = spotsCollection.find(query);
             const result = await cursor.toArray();
             res.send(result)

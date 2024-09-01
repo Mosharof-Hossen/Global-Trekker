@@ -15,7 +15,6 @@ const UpdateSpot = () => {
     const onSubmit = data => {
         data.userEmail = userEmail;
         data.userName = userName;
-        console.log(data)
         fetch(`http://localhost:3000/update/${_id}`, {
             method: "PUT",
             headers: {
@@ -26,7 +25,6 @@ const UpdateSpot = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
                 if (result.acknowledged) {
                     Swal.fire({
                         position: "top-end",
