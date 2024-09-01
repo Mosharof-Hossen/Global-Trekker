@@ -40,9 +40,9 @@ const Review = () => {
                     clickable: true,
                 }}
                 modules={[FreeMode, Pagination]}
-                className="mySwiper rounded"
+                className="mySwiper review-swiper rounded dark:bg-gray-900"
             >
-                <SwiperSlide>
+                <SwiperSlide className='dark:bg-gray-900 dark:text-white'>
                     <div className='border p-6 rounded shadow-lg space-y-5 text-justify'>
                         <div className="avatar flex justify-start gap-3 items-center ">
                             <div className="w-10 rounded-full">
@@ -50,7 +50,7 @@ const Review = () => {
                             </div>
                             <h1 className='text-2xl font-bold'> Sarah Thompson</h1>
                         </div>
-                        <p className='text-gray-500 '><RiDoubleQuotesL className='' /><span> An avid traveler with a passion for discovering hidden gems. Sarah loves sharing her experiences and tips on exploring lesser-known destinations around the world.</span><RiDoubleQuotesR /></p>
+                        <p className='text-gray-500 dark:text-white '><RiDoubleQuotesL className='' /><span> An avid traveler with a passion for discovering hidden gems. Sarah loves sharing her experiences and tips on exploring lesser-known destinations around the world.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>

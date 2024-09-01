@@ -2,10 +2,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import './Banner.css';
+import "./banner.css"
+
 
 import bangladesh from "../../assets/Banner Images/bangladesh.jpg"
 import thiland from "../../assets/Banner Images/Thailand.jpg"

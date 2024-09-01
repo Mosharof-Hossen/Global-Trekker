@@ -4,6 +4,7 @@ import SpotCard from "../../Components/SpotCard/SpotCard";
 import { useEffect, useState } from "react";
 import CountryCard from "../../Components/CountryCard/CountryCard";
 import Review from "../../Components/ReviewSection/Review";
+import Features from "../../Components/Features/Features";
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Features></Features>
             <div className="dark:bg-gray-900">
                 <div className="py-10 space-y-2">
                     <h2 className="text-center font-bold text-3xl dark:text-white">See Destination You Will <br /> Love To Visit</h2>
@@ -45,11 +47,11 @@ const Home = () => {
 
 
             <div className="dark:bg-gray-900">
-                <div className="py-14 space-y-2">
+                <div className="pt-14 space-y-2">
                     <h2 className="text-center font-bold text-3xl md:px-20 lg:px-40 px-5 dark:text-white">Our Happy clients</h2>
 
                 </div>
-                <div className="p-5">
+                <div className="p-5 dark:bg-gray-900">
                     <Review></Review>
                 </div>
             </div>
