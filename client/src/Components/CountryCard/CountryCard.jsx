@@ -11,7 +11,7 @@ const CountryCard = ({ country }) => {
                 style={{
                     backgroundImage: `url(${image})`,
                 }}>
-                <div className="hero-overlay bg-opacity-50 rounded" style={{
+                <div className="hero-overlay bg-opacity-35 rounded" style={{
 
                 }}>
 

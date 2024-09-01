@@ -6,8 +6,9 @@ import Footer from './Components/Footer/Footer'
 
 function App() {
 
+
   return (
-    <div className='dark:bg-gray-900 min-h-screen flex flex-col'>
+    <div className='dark:bg-gray-900 bg-white min-h-screen flex flex-col'>
       <div className='flex-grow mb-20'>
         <Navbar></Navbar>
         <Outlet></Outlet>

@@ -3,7 +3,7 @@ import App from "../App";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import Spots from "../Pages/Spots/Spots";
+// import Spots from "../Pages/Spots/Spots";
 import AddTouristsSpot from "../Pages/AddRouriestsSpot/AddRouriestsSpot";
 import MyList from "../Pages/MyList/MyList";
 import PrivateRoute from "./PrivateRoute";
@@ -11,6 +11,7 @@ import AllTouristsSpot from "../Pages/AllTouristsSpot/AllTouristsSpot";
 import SpotDetails from "../Components/SpotDetails/SpotDetails";
 import UpdateSpot from "../Pages/UpdateSpot/UpdateSpot";
 import CountrySpot from "../Pages/CountrySpot/CountrySpot";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -30,10 +31,7 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             },
-            {
-                path: "/spots",
-                element: <Spots></Spots>
-            },
+            
             {
                 path: "/add-tourists-spot",
                 element: <PrivateRoute><AddTouristsSpot></AddTouristsSpot></PrivateRoute>
@@ -61,6 +59,10 @@ const router = createBrowserRouter([
                 path: "/country-spot/:country",
                 element: <CountrySpot></CountrySpot>,
                 loader: ({ params }) => fetch(`http://localhost:3000/country-spots/${params.country}`)
+            },
+            {
+                path:"/about-us",
+                element: <AboutUs></AboutUs>
             }
 
 

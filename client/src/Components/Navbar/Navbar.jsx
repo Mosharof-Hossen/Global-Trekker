@@ -23,7 +23,6 @@ const Navbar = () => {
 
     const links = <>
         <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/"}><li>Home</li></NavLink>
-        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/spots"}><li>Spots</li></NavLink>
         <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/all-tourists-spot"}><li>All Tourists Spot</li></NavLink>
         {
             user && <>
@@ -31,6 +30,8 @@ const Navbar = () => {
                 <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/my-lists"}><li>My List</li></NavLink>
             </>
         }
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/about-us"}><li>About Us</li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/about-us"}><li>Contacts</li></NavLink>
     </>
 
     const handleLogOut = () => {
