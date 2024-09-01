@@ -13,11 +13,13 @@ import UpdateSpot from "../Pages/UpdateSpot/UpdateSpot";
 import CountrySpot from "../Pages/CountrySpot/CountrySpot";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App></App>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -69,9 +71,6 @@ const router = createBrowserRouter([
                 path: "/contact-us",
                 element: <ContactUs></ContactUs>
             }
-
-
-
         ]
     }
 ])
