@@ -7,10 +7,14 @@ import Footer from './Components/Footer/Footer'
 function App() {
 
   return (
-    <div className='bg-white'>
-      <Navbar></Navbar>
-      <Outlet></Outlet>
-      <Footer></Footer>
+    <div className='dark:bg-gray-900 min-h-screen flex flex-col'>
+      <div className='flex-grow'>
+        <Navbar></Navbar>
+        <Outlet></Outlet>
+      </div>
+      <div>
+        <Footer></Footer>
+      </div>
     </div>
   )
 }
