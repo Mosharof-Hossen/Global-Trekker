@@ -31,7 +31,7 @@ const Navbar = () => {
             </>
         }
         <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/about-us"}><li>About Us</li></NavLink>
-        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/about-us"}><li>Contacts</li></NavLink>
+        <NavLink className={"hover:bg-primary-c hover:text-white rounded font-semibold px-3 py-2 mx-1 "} to={"/contact-us"}><li>Contacts</li></NavLink>
     </>
 
     const handleLogOut = () => {
