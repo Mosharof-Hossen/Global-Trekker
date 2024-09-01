@@ -53,7 +53,7 @@ const Review = () => {
                         <p className='text-gray-500 dark:text-white '><RiDoubleQuotesL className='' /><span> An avid traveler with a passion for discovering hidden gems. Sarah loves sharing her experiences and tips on exploring lesser-known destinations around the world.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='dark:bg-gray-900 dark:text-white'>
                     <div className='border p-6 rounded shadow-lg space-y-5 text-justify'>
                         <div className="avatar flex justify-start gap-3 items-center ">
                             <div className="w-10 rounded-full">
@@ -61,10 +61,10 @@ const Review = () => {
                             </div>
                             <h1 className='text-2xl font-bold'>David Martinez</h1>
                         </div>
-                        <p className='text-gray-500 '><RiDoubleQuotesL className='' /><span>Michael is a history buff who enjoys immersing himself in the rich cultures and historical sites of the destinations he visits. He believes every place has a story to tell.</span><RiDoubleQuotesR /></p>
+                        <p className='text-gray-500 dark:text-white'><RiDoubleQuotesL className='' /><span>Michael is a history buff who enjoys immersing himself in the rich cultures and historical sites of the destinations he visits. He believes every place has a story to tell.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='dark:bg-gray-900 dark:text-white'>
                     <div className='border p-6 rounded shadow-lg space-y-5 text-justify'>
                         <div className="avatar flex justify-start gap-3 items-center ">
                             <div className="w-10 rounded-full">
@@ -72,10 +72,10 @@ const Review = () => {
                             </div>
                             <h1 className='text-2xl font-bold'>David Martinez</h1>
                         </div>
-                        <p className='text-gray-500 '><RiDoubleQuotesL className='' /><span>A foodie and adventure enthusiast, David enjoys exploring new cultures through their cuisine. He’s always on the lookout for the next great culinary adventure.</span><RiDoubleQuotesR /></p>
+                        <p className='text-gray-500 dark:text-white'><RiDoubleQuotesL className='' /><span>A foodie and adventure enthusiast, David enjoys exploring new cultures through their cuisine. He’s always on the lookout for the next great culinary adventure.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='dark:bg-gray-900 dark:text-white'>
                     <div className='border p-6 rounded shadow-lg space-y-5 text-justify'>
                         <div className="avatar flex justify-start gap-3 items-center ">
                             <div className="w-10 rounded-full">
@@ -83,10 +83,10 @@ const Review = () => {
                             </div>
                             <h1 className='text-2xl font-bold'>Emily Johnson</h1>
                         </div>
-                        <p className='text-gray-500 '><RiDoubleQuotesL className='' /><span>A travel blogger with a focus on sustainable tourism, Emily is dedicated to finding eco-friendly ways to explore the world without leaving a negative impact.</span><RiDoubleQuotesR /></p>
+                        <p className='text-gray-500 dark:text-white'><RiDoubleQuotesL className='' /><span>A travel blogger with a focus on sustainable tourism, Emily is dedicated to finding eco-friendly ways to explore the world without leaving a negative impact.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='dark:bg-gray-900 dark:text-white'>
                     <div className='border p-6 rounded shadow-lg space-y-5 text-justify'>
                         <div className="avatar flex justify-start gap-3 items-center ">
                             <div className="w-10 rounded-full">
@@ -94,10 +94,10 @@ const Review = () => {
                             </div>
                             <h1 className='text-2xl font-bold'>Michael Lee</h1>
                         </div>
-                        <p className='text-gray-500 '><RiDoubleQuotesL className='' /><span>Michael is a history buff who enjoys immersing himself in the rich cultures and historical sites of the destinations he visits. He believes every place has a story to tell.</span><RiDoubleQuotesR /></p>
+                        <p className='text-gray-500 dark:text-white'><RiDoubleQuotesL className='' /><span>Michael is a history buff who enjoys immersing himself in the rich cultures and historical sites of the destinations he visits. He believes every place has a story to tell.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='dark:bg-gray-900 dark:text-white'>
                     <div className='border p-6 rounded shadow-lg space-y-5 text-justify'>
                         <div className="avatar flex justify-start gap-3 items-center ">
                             <div className="w-10 rounded-full">
@@ -105,10 +105,10 @@ const Review = () => {
                             </div>
                             <h1 className='text-2xl font-bold'>James Cooper</h1>
                         </div>
-                        <p className='text-gray-500 '><RiDoubleQuotesL className='' /><span>An outdoor adventurer who loves hiking and camping. James is always ready to explore the great outdoors, from mountain trails to remote beaches.</span><RiDoubleQuotesR /></p>
+                        <p className='text-gray-500 dark:text-white'><RiDoubleQuotesL className='' /><span>An outdoor adventurer who loves hiking and camping. James is always ready to explore the great outdoors, from mountain trails to remote beaches.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='dark:bg-gray-900 dark:text-white'>
                     <div className='border p-6 rounded shadow-lg space-y-5 text-justify'>
                         <div className="avatar flex justify-start gap-3 items-center ">
                             <div className="w-10 rounded-full">
@@ -116,10 +116,10 @@ const Review = () => {
                             </div>
                             <h1 className='text-2xl font-bold'>Maria Gonzalez</h1>
                         </div>
-                        <p className='text-gray-500 '><RiDoubleQuotesL className='' /><span>A solo traveler with a passion for meeting new people. Maria’s travel experiences are all about connecting with locals and learning about their way of life.</span><RiDoubleQuotesR /></p>
+                        <p className='text-gray-500 dark:text-white'><RiDoubleQuotesL className='' /><span>A solo traveler with a passion for meeting new people. Maria’s travel experiences are all about connecting with locals and learning about their way of life.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='dark:bg-gray-900 dark:text-white'>
                     <div className='border p-6 rounded shadow-lg space-y-5 text-justify'>
                         <div className="avatar flex justify-start gap-3 items-center ">
                             <div className="w-10 rounded-full">
@@ -127,7 +127,7 @@ const Review = () => {
                             </div>
                             <h1 className='text-2xl font-bold'>Olivia Brown</h1>
                         </div>
-                        <p className='text-gray-500 '><RiDoubleQuotesL className='' /><span>A family travel expert who enjoys planning trips that are fun and educational for all ages. Olivia believes that travel is the best way to create lasting family memories.</span><RiDoubleQuotesR /></p>
+                        <p className='text-gray-500 dark:text-white'><RiDoubleQuotesL className='' /><span>A family travel expert who enjoys planning trips that are fun and educational for all ages. Olivia believes that travel is the best way to create lasting family memories.</span><RiDoubleQuotesR /></p>
                     </div>
                 </SwiperSlide>
 
