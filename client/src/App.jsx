@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className='dark:bg-gray-900 min-h-screen flex flex-col'>
-      <div className='flex-grow'>
+      <div className='flex-grow mb-20'>
         <Navbar></Navbar>
         <Outlet></Outlet>
       </div>
