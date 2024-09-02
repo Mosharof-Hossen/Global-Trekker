@@ -6,8 +6,9 @@
 1. This is a Travel website.
 2. Basically I have implemented CRUD operation on MongoDB database and Firebese Authentication.
 3. Tourist spots details can be created, read, updated, deleted.
-4. Both the server site and the client site were challenging. I enjoyed it.
-5. Here I used Fake Data.
+4. Here some routes are private/protected route.
+5. Both the server site and the client site were challenging. I enjoyed it.
+
 
 
 ## Tools: 
