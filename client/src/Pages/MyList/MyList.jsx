@@ -7,7 +7,7 @@ const MyList = () => {
     const { user } = useContext(AuthContext);
     const [myData, setMyData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:3000/spots/${user.email}`)
+        fetch(`https://gotravel-silk.vercel.app/spots/${user.email}`)
             .then(res => res.json())
             .then(data => setMyData(data))
     }, [user])

@@ -15,7 +15,7 @@ const UpdateSpot = () => {
     const onSubmit = data => {
         data.userEmail = userEmail;
         data.userName = userName;
-        fetch(`http://localhost:3000/update/${_id}`, {
+        fetch(`https://gotravel-silk.vercel.app/update/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

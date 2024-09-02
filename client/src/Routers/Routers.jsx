@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch("http://localhost:3000/spots")
+                loader: () => fetch("https://gotravel-silk.vercel.app/spots")
             },
             {
                 path: "/login",
@@ -46,22 +46,22 @@ const router = createBrowserRouter([
             {
                 path: "/all-tourists-spot",
                 element: <AllTouristsSpot></AllTouristsSpot>,
-                loader: () => fetch("http://localhost:3000/spots")
+                loader: () => fetch("https://gotravel-silk.vercel.app/spots")
             },
             {
                 path: "/spot-details/:id",
                 element: <PrivateRoute><SpotDetails></SpotDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/spot/${params.id}`)
+                loader: ({ params }) => fetch(`https://gotravel-silk.vercel.app/spot/${params.id}`)
             },
             {
                 path: "/update/:id",
                 element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/spot/${params.id}`)
+                loader: ({ params }) => fetch(`https://gotravel-silk.vercel.app/spot/${params.id}`)
             },
             {
                 path: "/country-spot/:country",
                 element: <CountrySpot></CountrySpot>,
-                loader: ({ params }) => fetch(`http://localhost:3000/country-spots/${params.country}`)
+                loader: ({ params }) => fetch(`https://gotravel-silk.vercel.app/country-spots/${params.country}`)
             },
             {
                 path: "/about-us",

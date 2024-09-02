@@ -10,7 +10,7 @@ const AddTouristsSpot = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        fetch("http://localhost:3000/spot", {
+        fetch("https://gotravel-silk.vercel.app/spot", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

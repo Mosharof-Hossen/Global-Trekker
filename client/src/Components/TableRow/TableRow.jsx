@@ -17,7 +17,7 @@ const TableRow = ({ data, handleDisplayAfterDelete }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(id);
-                fetch(`http://localhost:3000/delete/${id}`, {
+                fetch(`https://gotravel-silk.vercel.app/delete/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

@@ -12,7 +12,7 @@ const Home = () => {
     const spots = useLoaderData();
 
     useEffect(() => {
-        fetch("http://localhost:3000/country")
+        fetch("https://gotravel-silk.vercel.app/country")
             .then(res => res.json())
             .then(data => setCountry(data))
     }, [])
