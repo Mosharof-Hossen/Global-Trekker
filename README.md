@@ -10,7 +10,8 @@
 5. For login/registration I used firebase authentication like email-password, google and github login.
 6. I have used validation in login and registration form.
 7. Tourist Spot Section: Here I show at least 12 cards of tourist spots, I have added to the database.
-8. Both the server site and the client site were challenging. I enjoyed it.
+8. Add Tourists Spot Page: Created an Add Tourists Spot page where there is a form for the user to add a Tourists Spot.
+9. Both the server site and the client site were challenging. I enjoyed it.
 
 
 
