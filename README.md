@@ -14,7 +14,8 @@
 9. All Tourists Spot page: Created an All Tourists Spot page where we see the tourist spots all the users have added to the database. And here used Sort Functionality based on "average_cost".
 10. View Details Page: The Tourists Spot detail route is a private/protected route.
 11. My List Page: It is also private/protected route. Here you can delete and update the the tourist spot.
-12. Both the server site and the client site were challenging. I enjoyed it.
+12. In the country section, click on any country card to see all the spots in that country.
+13. Both the server site and the client site were challenging. I enjoyed it.
 
 
 
@@ -29,7 +30,7 @@
 
 5.DaisyUI.
 
-6.Use Fake Data.
+6.Firebase Authentication.
 
 7.React Icons.
 
