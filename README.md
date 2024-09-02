@@ -12,7 +12,9 @@
 7. Tourist Spot Section: Here I show at least 12 cards of tourist spots, I have added to the database.
 8. Add Tourists Spot Page: Created an Add Tourists Spot page where there is a form for the user to add a Tourists Spot. this is a private/protected route.
 9. All Tourists Spot page: Created an All Tourists Spot page where we see the tourist spots all the users have added to the database. And here used Sort Functionality based on "average_cost".
-10. Both the server site and the client site were challenging. I enjoyed it.
+10. View Details Page: The Tourists Spot detail route is a private/protected route.
+11. My List Page: It is also private/protected route. Here you can delete and update the the tourist spot.
+12. Both the server site and the client site were challenging. I enjoyed it.
 
 
 
