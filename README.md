@@ -7,7 +7,8 @@
 2. Basically I have implemented CRUD operation on MongoDB database and Firebese Authentication.
 3. Tourist spots details can be created, read, updated, deleted.
 4. Here some routes are private/protected route.
-5. Both the server site and the client site were challenging. I enjoyed it.
+5. For login/registration I used firebase authentication like email-password, google and github login.
+6. Both the server site and the client site were challenging. I enjoyed it.
 
 
 
